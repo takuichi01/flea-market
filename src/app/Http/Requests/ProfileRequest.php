@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProfileRequest.php extends FormRequest
+class ProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ProfileRequest.php extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class ProfileRequest.php extends FormRequest
     public function rules()
     {
         return [
-            //
+            'profile_image' => 'mimes:jpeg,png',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'profile_image.mimes' => 'プロフィール画像はJPEGまたはPNG形式でアップロードしてください',
         ];
     }
 }
+

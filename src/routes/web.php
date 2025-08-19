@@ -30,6 +30,8 @@ Route::controller(UserController::class)->middleware('auth')->group(function () 
     Route::get('/mypage', 'profile')->name('user.profile');
     Route::get('/mypage/profile', 'edit')->name('user.edit');
     Route::post('/mypage/profile', 'update')->name('user.update');
+    Route::get('/purchase/address/{id}', 'editAddress')->name('address.edit');
+    Route::post('/purchase/address/{id}', 'updateAddress')->name('address.update');
 });
 
 Route::controller(PurchaseController::class)->middleware('auth')->group(function () {

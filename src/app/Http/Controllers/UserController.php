@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Purchase;
+use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\AddressRequest;
 
 class UserController extends Controller
 {
@@ -24,7 +26,7 @@ class UserController extends Controller
         return view('user.setting_profile', compact('user'));
     }
 
-    public function update(Request $request)
+    public function update(ProfileRequest $request)
     {
         $user = auth()->user();
         $user->name = $request->input('name');
@@ -40,6 +42,24 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('user.profile')->with('success', 'プロフィールが更新されました。');
+        return redirect()->route('product.index')->with('success', 'プロフィールが更新されました。');
+    }
+
+    public function editAddress($id)
+    {
+        $user = auth()->user();
+        return view('user.change_address', compact('user', 'id'));
+    }
+
+    public function updateAddress(AddressRequest $request, $id)
+    {
+        $user = auth()->user();
+        $user->postcode = $request->input('postcode');
+        $user->address = $request->input('address');
+        $user->building = $request->input('building');
+
+        $user->save();
+
+        return redirect()->route('purchase.show', ['id' => $id]);
     }
 }

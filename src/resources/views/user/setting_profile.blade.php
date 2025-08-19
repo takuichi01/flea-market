@@ -19,8 +19,8 @@
                 @csrf
                 <button type="submit" class="header-link">ログアウト</button>
             </form>
-            <a href="#" class="header-link">マイページ</a>
-            <a href="#" class="header-link header-link-exhibit">出品</a>
+            <a href="{{ route('user.profile') }}" class="header-link">マイページ</a>
+            <a href="{{ route('product.listing') }}" class="header-link header-link-exhibit">出品</a>
         </div>
     </div>
     <div class="container">

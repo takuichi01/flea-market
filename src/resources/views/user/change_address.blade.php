@@ -23,18 +23,19 @@
     </div>
     <div class="container">
         <h2 class="title">住所の変更</h2>
-        <form class="address-form">
+        <form class="address-form" method="POST" action="{{ route('address.update', ['id' => $id]) }}">
+            @csrf
             <div class="form-group">
-                <label for="postal">郵便番号</label>
-                <input type="text" id="postal" name="postal">
+                <label for="postcode">郵便番号</label>
+                <input type="text" id="postcode" name="postcode" value="{{ $user->postcode }}">
             </div>
             <div class="form-group">
                 <label for="address">住所</label>
-                <input type="text" id="address" name="address">
+                <input type="text" id="address" name="address" value="{{ $user->address }}">
             </div>
             <div class="form-group">
                 <label for="building">建物名</label>
-                <input type="text" id="building" name="building">
+                <input type="text" id="building" name="building" value="{{ $user->building }}">
             </div>
             <button type="submit" class="btn-update">更新する</button>
         </form>

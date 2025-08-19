@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Like;
 use App\Models\Comment;
 use App\Http\Requests\CommentRequest;
+use App\Http\Requests\ExhibitionRequest;
 
 class ProductController extends Controller
 {
@@ -43,7 +44,7 @@ class ProductController extends Controller
         return view('product.listing');
     }
 
-    public function store(Request $request)
+    public function store(ExhibitionRequest $request)
     {
         $product = new Product();
         $product->name = $request->input('name');

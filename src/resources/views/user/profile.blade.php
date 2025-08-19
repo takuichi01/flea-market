@@ -15,7 +15,10 @@
         </div>
         <input type="text" class="search-box" placeholder="なにをお探しですか？">
         <div class="header-links">
-            <a href="#" class="header-link">ログアウト</a>
+            <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                @csrf
+                <button type="submit" class="header-link">ログアウト</button>
+            </form>
             <a href="{{ route('user.profile') }}" class="header-link">マイページ</a>
             <a href="{{ route('product.listing') }}" class="header-link header-link-exhibit">出品</a>
         </div>
@@ -28,21 +31,21 @@
         <a href="{{ route('user.edit') }}" class="btn-edit">プロフィールを編集</a>
     </div>
     <div class="tab-area">
-        <a href="{{ route('user.profile', ['tab' => 'listed']) }}"
-            class="tab{{ request('tab', 'listed') == 'listed' ? ' active' : '' }}">出品した商品</a>
-        <a href="{{ route('user.profile', ['tab' => 'purchased']) }}"
-            class="tab{{ request('tab') == 'purchased' ? ' active' : '' }}">購入した商品</a>
+        <a href="{{ route('user.profile', ['tab' => 'sell']) }}"
+            class="tab{{ request('tab', 'sell') == 'sell' ? ' active' : '' }}">出品した商品</a>
+        <a href="{{ route('user.profile', ['tab' => 'buy']) }}"
+            class="tab{{ request('tab') == 'buy' ? ' active' : '' }}">購入した商品</a>
     </div>
     <hr class="tab-border">
     <div class="products">
-        @if (request('tab', 'listed') == 'listed')
+        @if (request('tab', 'sell') == 'sell')
         @foreach ($listedProducts as $product)
         <div class="product-card">
             <div class="product-image"><img src="{{ $product->product_image }}" alt="商品画像"></div>
             <div class="product-name">{{ $product->name }}</div>
         </div>
         @endforeach
-        @elseif (request('tab') == 'purchased')
+        @elseif (request('tab') == 'buy')
         @foreach ($purchaseProducts as $product)
         <div class="product-card">
             <div class="product-image"><img src="{{ $product->product_image }}" alt="商品画像"></div>

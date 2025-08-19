@@ -48,7 +48,7 @@
                 <div class="address-info">
                     <div class="address-postal">〒 {{ $user->postcode }}</div>
                     <div class="address-detail">{{ $user->address }} {{ $user->building }}</div>
-                    <a href="{{ route('user.edit') }}" class="address-change">変更する</a>
+                    <a href="{{ route('address.edit', ['id' => $product->id]) }}" class="address-change">変更する</a>
                 </div>
             </div>
             <hr>
