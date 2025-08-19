@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+    background: #fff;
+}
+
+.header {
+    background: #000;
+    padding: 20px 0 10px 0;
+}
+
+.logo {
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo span:last-child {
+    margin-left: 8px;
+}
+
+.logo-gt {
+    display: inline-block;
+    width: 50px;
+    height: 32px;
+    background: url('data:image/svg+xml;utf8,<svg width="50" height="32" xmlns="http://www.w3.org/2000/svg"><path d="M0 32V0h32c8.837 0 16 7.163 16 16s-7.163 16-16 16H0z" fill="white"/><path d="M0 0h32c8.837 0 16 7.163 16 16s-7.163 16-16 16H0V0zm2 2v28h30c7.732 0 14-6.268 14-14S39.732 2 32 2H2z" fill="black"/></svg>') no-repeat center/contain;
+    margin-right: 8px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 160px auto 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 48px;
+    margin-top: 0;
+}
+
+.btn-verify {
+    display: inline-block;
+    background: #ddd;
+    color: #222;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid #888;
+    border-radius: 8px;
+    padding: 16px 48px;
+    margin-bottom: 32px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-verify:hover {
+    background: #ccc;
+}
+
+.resend-link {
+    margin-top: 24px;
+}
+
+.resend-link a {
+    color: #2196f3;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.resend-link a:hover {
+    text-decoration: underline;
+}

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->string('email', 255)->unique();
-            # $table->timestamp('email_verified_at')->nullable();
-            $table->string('password', 255);
-            $table->text('profile_image')->nullable();
-            $table->string('postcode', 8)->nullable();
-            $table->string('address', 255)->nullable();
-            $table->string('building', 255)->nullable();
+            $table->foreignId('seller_id')->constrained('users')->onDelete('cascade');
+            $table->text('product_image');
+            $table->string('brand', 255)->nullable();
+            $table->unsignedBigInteger('price');
+            $table->text('description');
+            $table->string('category', 255);
+            $table->string('condition', 255);
+            $table->boolean('sold_flag');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
@@ -35,6 +36,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('products');
     }
 }
