@@ -31,3 +31,8 @@
 ![ER図](./ER.drawio.png)
 
 ## URL
+
+- 開発環境：http://localhost/
+  ※詳細のパスは以下の要件定義書を確認
+  https://docs.google.com/spreadsheets/d/1x3uyJ5LIhMUmJgiTItCTP1IBS93Afw_juqwdcg_g9vw/edit?gid=574125123#gid=574125123
+- phpMyAdmin：http://localhost:8080
